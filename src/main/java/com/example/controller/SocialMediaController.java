@@ -57,7 +57,7 @@ public class SocialMediaController {
     }
     // User story 3
     @PostMapping("/messages")
-    public ResponseEntity login(@RequestBody Message message){
+    public ResponseEntity newMessage(@RequestBody Message message){
         try{
             message = messageService.addMessage(message);
         }
