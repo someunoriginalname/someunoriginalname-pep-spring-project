@@ -101,7 +101,7 @@ public class SocialMediaController {
     }
 
     // User story 8
-    @GetMapping("accounts/{accountId}/message")
+    @GetMapping("accounts/{accountId}/messages")
     public ResponseEntity messagesByUser(@PathVariable int accountId){
         return ResponseEntity.status(200).body(messageService.messagesByUser(accountId));
     }
