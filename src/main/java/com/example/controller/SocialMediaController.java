@@ -22,7 +22,6 @@ import java.util.*;
 
 @RestController
 public class SocialMediaController {
-    @Autowired
     AccountService accountService;
     MessageService messageService;
 
