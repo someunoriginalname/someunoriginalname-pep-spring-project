@@ -49,7 +49,7 @@ public class SocialMediaController {
     public ResponseEntity login(@RequestBody Account account){
         account = accountService.loginAccount(account);
         if(account == null){
-            return ResponseEntity.status(400).body(account);
+            return ResponseEntity.status(401).body(account);
         }
         return ResponseEntity.status(200).body(account);
     }

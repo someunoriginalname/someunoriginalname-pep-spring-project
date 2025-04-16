@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface AccountRepository extends JpaRepository<Account, Long> {
+public interface AccountRepository extends JpaRepository<Account, Integer> {
     // User story number 1
     @Query("From Account WHERE username = :username")
     Optional<Account> findAccountByUsername(@Param("username") String username);
