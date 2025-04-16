@@ -6,8 +6,10 @@ import com.example.service.MessageService;
 import com.example.exception.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.annotation.RepeatableContainers;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -17,9 +19,11 @@ import java.util.*;
  * where applicable as well as the @ResponseBody and @PathVariable annotations. You should
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  */
+@ComponentScan(basePackages = "com.example.entity")
+@Component
 @RestController
 public class SocialMediaController {
-
+    @Autowired
     AccountService accountService;
     MessageService messageService;
 
