@@ -22,8 +22,8 @@ import java.util.*;
 
 @RestController
 public class SocialMediaController {
-    AccountService accountService;
-    MessageService messageService;
+    private final AccountService accountService;
+    private final MessageService messageService;
 
     @Autowired
     public SocialMediaController(AccountService accountService, MessageService messageService){

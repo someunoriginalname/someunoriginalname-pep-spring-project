@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
     // User story number 1
-    @Query("From account WHERE username = :username")
+    @Query("From Account WHERE username = :username")
     Optional<Account> findAccountByUsername(@Param("username") String username);
     
     /** User story number 2
@@ -21,10 +21,10 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
      * @param Password
      * @return
      */
-    @Query("FROM account WHERE username = :username AND password = :password")
+    @Query("FROM Account WHERE username = :username AND password = :password")
     Optional<Account> findAccountByUsernameAndPassword(@Param("username") String username, @Param("password") String Password);
 
     // User story number 3
-    @Query("From account WHERE accountId = :accountId")
+    @Query("From Account WHERE accountId = :accountId")
     Optional<Account> findAccountById(@Param("accountId") int accountId);
 }
