@@ -91,16 +91,17 @@ public class SocialMediaController {
     // User story 7
     @PatchMapping("/messages/{messageId}")
     public ResponseEntity patchMessage(@PathVariable int messageId, @RequestBody String messageText){
+        Message message = new Message();
+        message.setMessageId(messageId);
+        message.setMessageText(messageText);
         try{
-            Message message = new Message();
-            message.setMessageId(messageId);
-            message.setMessageText(messageText);
             int rows = messageService.changeMessage(message);
-            return ResponseEntity.status(200).body(rows);
+
         }
         catch(InvalidMessageException e){
             return ResponseEntity.status(400).body("");
         }
+        return ResponseEntity.status(200).body(1);
     }
 
     // User story 8
