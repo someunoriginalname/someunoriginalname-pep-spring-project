@@ -35,6 +35,7 @@ public class SocialMediaController {
     public ResponseEntity register(@RequestBody Account account){
         try{
             account = accountService.persistAcconut(account);
+            return ResponseEntity.status(200).body(account);
         }
         catch(InvalidAccountException e){
             return ResponseEntity.status(400).body(account);
@@ -42,7 +43,6 @@ public class SocialMediaController {
         catch(DataIntegrityViolationException e){
             return ResponseEntity.status(409).body(account);
         }
-        return ResponseEntity.status(200).body(account);
     }
     // User story 2
     @PostMapping("/login")
@@ -58,11 +58,12 @@ public class SocialMediaController {
     public ResponseEntity newMessage(@RequestBody Message message){
         try{
             message = messageService.addMessage(message);
+            return ResponseEntity.status(200).body(message);
         }
         catch(InvalidMessageException e){
             return ResponseEntity.status(400).body(message);
         }
-        return ResponseEntity.status(200).body(message);
+        
     }
     // User story 4
     @GetMapping("/messages")
@@ -92,11 +93,11 @@ public class SocialMediaController {
     public ResponseEntity patchMessage(@PathVariable int messageId, @RequestBody Message message){
         try{
             int rows = messageService.changeMessage(message);
+            return ResponseEntity.status(200).body(rows);
         }
         catch(InvalidMessageException e){
             return ResponseEntity.status(400).body("");
         }
-        return ResponseEntity.status(200).body(1);
     }
 
     // User story 8
