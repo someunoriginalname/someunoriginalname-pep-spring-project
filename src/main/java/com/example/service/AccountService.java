@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class AccountService {
+    @Autowired
     AccountRepository accountRepository;
     @Autowired
     public AccountService(AccountRepository accountRepository){
