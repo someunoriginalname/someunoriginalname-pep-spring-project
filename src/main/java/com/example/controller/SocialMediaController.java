@@ -3,6 +3,8 @@ import com.example.entity.Account;
 import com.example.entity.Message;
 import com.example.service.AccountService;
 import com.example.service.MessageService;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.exception.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,8 +92,10 @@ public class SocialMediaController {
     
     // User story 7
     @PatchMapping("/messages/{messageId}")
-    public ResponseEntity patchMessage(@PathVariable int messageId, @RequestBody String messageText){
+    public ResponseEntity patchMessage(@PathVariable int messageId, @RequestBody Map<String, String> request){
+        String messageText = request.get("messageText");
         Message message = new Message();
+        System.out.println(messageText);
         message.setMessageId(messageId);
         message.setMessageText(messageText);
         try{
