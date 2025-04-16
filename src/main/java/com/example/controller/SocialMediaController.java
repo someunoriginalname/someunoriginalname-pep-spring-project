@@ -96,12 +96,11 @@ public class SocialMediaController {
         message.setMessageText(messageText);
         try{
             int rows = messageService.changeMessage(message);
-
+            return ResponseEntity.status(200).body(rows);
         }
         catch(InvalidMessageException e){
             return ResponseEntity.status(400).body("");
         }
-        return ResponseEntity.status(200).body(1);
     }
 
     // User story 8
