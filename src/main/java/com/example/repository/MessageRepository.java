@@ -11,10 +11,11 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 import javax.websocket.server.PathParam;
-
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+@Repository
 public interface MessageRepository extends JpaRepository<Message, Long>{
 
     // User story number 5

@@ -19,8 +19,7 @@ import java.util.*;
  * where applicable as well as the @ResponseBody and @PathVariable annotations. You should
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  */
-@ComponentScan(basePackages = "com.example.entity")
-@Component
+
 @RestController
 public class SocialMediaController {
     @Autowired
@@ -103,7 +102,7 @@ public class SocialMediaController {
 
     // User story 8
     @GetMapping("accounts/{accountId}/message")
-    public ResponseEntity messagesByUser(@PathVariable int messageId){
-        return ResponseEntity.status(200).body(messageService.messagesByUser(messageId));
+    public ResponseEntity messagesByUser(@PathVariable int accountId){
+        return ResponseEntity.status(200).body(messageService.messagesByUser(accountId));
     }
 }
