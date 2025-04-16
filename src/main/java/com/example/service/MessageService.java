@@ -70,7 +70,7 @@ public class MessageService {
      * @throws InvalidMessageException
      */
     public int changeMessage(Message message) throws InvalidMessageException{
-        if(messageRepository.findMessageById(message.getMessageId()).isEmpty() ||
+        if(message.getMessageText().isEmpty() ||
             message.getMessageText().length() > 255)
             throw new InvalidMessageException();
         return messageRepository.updateMessageById(message.getMessageText(), message.getMessageId());
